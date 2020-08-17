@@ -1,0 +1,9 @@
+version: '3.7'
+
+services:
+  python:
+    image: python:3.8
+    environment:
+      - ENV:dev
+    volumes:
+      - ./:/app/
