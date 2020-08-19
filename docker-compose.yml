@@ -4,6 +4,6 @@ services:
   python:
     image: python:3.8
     environment:
-      - ENV:dev
+      - ENV=dev
     volumes:
       - ./:/app/
