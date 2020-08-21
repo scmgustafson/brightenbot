@@ -1,0 +1,23 @@
+---
+kind: pipeline
+type: docker
+name: Quality
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: "Lint Python"
+  image: python:alpine
+  depends_on: ["clone"]
+  commands:
+    - pip3 install flake8 --quiet
+    - flake8
+
+- name: "Scan Python"
+  image: python:alpine
+  depends_on: ["clone"]
+  commands:
+    - pip3 install bandit --quiet
+    - bandit .
